@@ -19,3 +19,16 @@ export const productsReducer = (state = initialState, { type, payload }) => {
       return state;
   }
 };
+
+export const productReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.FETCH_PRODUCT_REQUEST:
+      return { ...state, loading: true, error: null };
+    case ActionTypes.FETCH_PRODUCT_SUCCESS:
+      return { ...state, loading: false, products: payload };
+    case ActionTypes.FETCH_PRODUCT_FAILURE:
+      return { ...state, loading: false, error: payload };
+    default:
+      return state;
+  }
+};

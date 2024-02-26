@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useEffect, useState } from "react";
-import ProductList from "./components/ProductList";
+import ProductList from "./components/productlist/ProductList";
 import { fetchProducts } from "./redux/actions/productActions";
 import { productsReducer } from "./redux/reducers/productsReducer";
 
