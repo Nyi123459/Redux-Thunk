@@ -1,4 +1,5 @@
 // actions/productActions.js
+import { useParams } from "react-router-dom";
 import { ActionTypes } from "../../constants/action-types";
 
 export const fetchProducts = () => {
@@ -26,22 +27,22 @@ export const fetchProducts = () => {
   };
 };
 
-export const fetchProduct = () => {
+export const fetchProduct = (id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: ActionTypes.FETCH_SELECTED_PRODUCT });
       const response = await fetch(`https://dummyjson.com/products/${id}`);
       const data = await response.json();
+
       dispatch({
         type: ActionTypes.FETCH_PRODUCT_SUCCESS,
-        payload: data.product,
+        payload: data,
       });
     } catch (error) {
       dispatch({
         type: ActionTypes.FETCH_PRODUCT_FAILURE,
         payload: error.message,
       });
-      throw error;
     }
   };
 };

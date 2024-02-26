@@ -20,12 +20,15 @@ export const productsReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export const productReducer = (state = initialState, { type, payload }) => {
+export const selectedProductReducer = (
+  state = initialState,
+  { type, payload }
+) => {
   switch (type) {
-    case ActionTypes.FETCH_PRODUCT_REQUEST:
+    case ActionTypes.FETCH_SELECTED_PRODUCT:
       return { ...state, loading: true, error: null };
     case ActionTypes.FETCH_PRODUCT_SUCCESS:
-      return { ...state, loading: false, products: payload };
+      return { ...state, loading: false, product: payload };
     case ActionTypes.FETCH_PRODUCT_FAILURE:
       return { ...state, loading: false, error: payload };
     default:
