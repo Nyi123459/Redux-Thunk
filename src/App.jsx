@@ -1,11 +1,11 @@
 import React, { createContext, useReducer, useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 
 import ProductList from "./components/product-list/ProductList";
 
 import ProductDetail from "./components/product-details/ProductDetails";
 
-import { fetchProducts } from "./redux/actions/productActions";
+import { fetchProduct, fetchProducts } from "./redux/actions/productActions";
 
 import {
   productsReducer,

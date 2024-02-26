@@ -1,4 +1,5 @@
 // actions/productActions.js
+import { useParams } from "react-router-dom";
 import { ActionTypes } from "../../constants/action-types";
 
 export const fetchProducts = () => {
@@ -26,7 +27,7 @@ export const fetchProducts = () => {
   };
 };
 
-export const fetchProduct = () => {
+export const fetchProduct = (id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: ActionTypes.FETCH_SELECTED_PRODUCT });
