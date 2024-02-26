@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../App";
 import { fetchProduct } from "../../redux/actions/productActions";
+import "./ProductDetails.styles.scss";
 
 export const ProductDetail = () => {
   const [singleProduct, setSingleProduct] = useState([]);
@@ -45,18 +46,20 @@ export const ProductDetail = () => {
         <img src={singleProd?.images[0]} alt="" />
       </div>
       <div className="detail-container">
-        <div>
-          <span>{singleProd?.title}</span>
-          <span>{singleProd?.price}</span>
+        <div className="header container">
+          <p className="title">{singleProd?.title}</p>
+          <p className="price">{singleProd?.price}$</p>
         </div>
-        <div>
-          <span>{singleProd?.description}</span>
-          <span>{singleProd?.discountPercentage}% OFF</span>
-          <span>{singleProd?.rating}</span>
-          <span>{singleProd?.brand}</span>
-          <span>{singleProd?.category}</span>
+        <div className="product-detail-container">
+          <p className="description">{singleProd?.description}</p>
+          <p className="disountPercentage">
+            ${singleProd?.price} - {singleProd?.discountPercentage} % OFF
+          </p>
+          <p className="rating">{singleProd?.rating}</p>
+          <p className="brand">{singleProd?.brand}</p>
+          <p className="category">{singleProd?.category}</p>
         </div>
-        <div>
+        <div className="thumbnail-container">
           {singleProd?.images.map((image, index) => (
             <img
               key={index}
@@ -66,7 +69,7 @@ export const ProductDetail = () => {
             />
           ))}
         </div>
-        <button/>Add To Cart
+        <button className="button-container">Add To Cart</button>
       </div>
     </div>
   );
